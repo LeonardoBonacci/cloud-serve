@@ -2,7 +2,6 @@ version: '3'
 
 services:
   serve:
-    build: .
   sut:
     build: ./tests
     depends_on:
