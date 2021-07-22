@@ -8,6 +8,4 @@ RUN chown 777 mytest.sh
 RUN chown 777 /mytest.sh
 RUN chown -R 777 /opt/bitnami/kafka/bin/
 
-USER 1001
-
 CMD ["/mytest.sh"]
