@@ -5,5 +5,5 @@ RUN apt-get -y update && apt-get install -y \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-COPY connector/bootstrap.sh /bootstrap.sh
+COPY datagen/bootstrap.sh /bootstrap.sh
 ENTRYPOINT ["/bootstrap.sh"]
