@@ -9,6 +9,7 @@ services:
 
   sut:
     build: ./test
+    user: root
     depends_on:
       - kafka
 
