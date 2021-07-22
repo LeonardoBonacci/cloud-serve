@@ -17,6 +17,8 @@ echo "repeat"
 
 record=$(kafka-console-consumer.sh --topic foo --bootstrap-server kafka:29092 --from-beginning --max-messages=1 | head -n 1 2>&1)
 echo $record
+echo $record
+echo $record
 
 if $json_string | jq type; then
     echo "Valid JSON"
