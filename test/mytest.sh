@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# shellcheck disable=SC1091
+
+set -o errexit
+set -o nounset
+set -o pipefail
+# set -o xtrace # Uncomment this line for debugging purpose
+
+# Load libraries
+. /opt/bitnami/scripts/liblog.sh
+. /opt/bitnami/scripts/libbitnami.sh
+. /opt/bitnami/scripts/libkafka.sh
+
 echo "sleep"
 sleep 60
 echo "eat"
@@ -17,13 +29,12 @@ echo "repeat"
 
 record=$(kafka-console-consumer.sh --topic foo --bootstrap-server kafka:29092 --from-beginning --max-messages=1 | head -n 1 2>&1)
 echo $record
-echo $record
-echo $record
 
-if $json_string | jq type; then
-    echo "Valid JSON"
-    exit 0
-else
-    echo "Failed to parse JSON"
-    exit 1
-fi
+exit 0
+#if $record | jq type; then
+#    echo "Valid JSON"
+#    exit 0
+#else
+#    echo "Failed to parse JSON"
+#    exit 1
+#fi
